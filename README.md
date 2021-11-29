@@ -12,6 +12,7 @@ Below you can find the docs for each tehnology that is used in this app:
 ## Android Architecture Components:
 * [LiveData][4]
 * [ViewModel][5]
+* [Navigation][12]
 
 ## Dependency Injection:
 * [Hilt for Android][6]
@@ -68,3 +69,4 @@ The code in this project is licensed under the Apache License 2.0.
 [9]: https://developer.android.com/jetpack/compose
 [10]: https://...
 [11]: https://firebase.google.com/docs/android/setup
+[12]: https://developer.android.com/guide/navigation
