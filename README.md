@@ -67,6 +67,6 @@ The code in this project is licensed under the Apache License 2.0.
 [7]: https://kotlinlang.org/docs/coroutines-overview.html
 [8]: https://kotlinlang.org/docs/flow.html
 [9]: https://developer.android.com/jetpack/compose
-[10]: https://...
+[10]: https://medium.com/firebase-tips-tricks/how-to-handle-firebase-authentication-in-clean-architecture-using-jetpack-compose-e9929c0e31f8
 [11]: https://firebase.google.com/docs/android/setup
 [12]: https://developer.android.com/guide/navigation
