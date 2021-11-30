@@ -24,7 +24,7 @@ class ProfileViewModel @Inject constructor(
 
     fun signOut() {
         viewModelScope.launch {
-            useCases.singOut().collect { response ->
+            useCases.signOut().collect { response ->
                 _isUserSignedOutState.value = response
             }
         }

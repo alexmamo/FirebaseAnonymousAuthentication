@@ -25,7 +25,7 @@ class AuthViewModel @Inject constructor(
 
     fun signInAnonymously() {
         viewModelScope.launch {
-            useCases.singInAnonymously().collect { response ->
+            useCases.signInAnonymously().collect { response ->
                 _signInState.value = response
             }
         }

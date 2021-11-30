@@ -25,8 +25,8 @@ class AppModule {
     @Provides
     fun provideUseCases(repository: AuthRepository) = UseCases(
         isUserAuthenticated = IsUserAuthenticated(repository),
-        singInAnonymously = SingInAnonymously(repository),
-        singOut = SignOut(repository),
+        signInAnonymously = SignInAnonymously(repository),
+        signOut = SignOut(repository),
         getAuthState = GetAuthState(repository)
     )
 }
