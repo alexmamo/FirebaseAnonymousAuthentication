@@ -7,7 +7,6 @@ import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import ro.alexmamo.firebaseanonymousauthentication.domain.model.Response
@@ -15,7 +14,6 @@ import ro.alexmamo.firebaseanonymousauthentication.domain.use_case.UseCases
 import javax.inject.Inject
 
 @HiltViewModel
-@InternalCoroutinesApi
 class ProfileViewModel @Inject constructor(
     private val useCases: UseCases
 ): ViewModel() {
