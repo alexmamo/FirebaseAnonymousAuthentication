@@ -14,5 +14,4 @@ object Constants {
 
     //Messages
     const val WELCOME_MESSAGE = "Welcome to our app."
-    const val ERROR_MESSAGE = "Unexpected error."
 }

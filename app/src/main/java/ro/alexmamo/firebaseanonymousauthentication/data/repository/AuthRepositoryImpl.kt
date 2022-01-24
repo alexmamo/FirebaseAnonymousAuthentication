@@ -10,7 +10,6 @@ import kotlinx.coroutines.tasks.await
 import ro.alexmamo.firebaseanonymousauthentication.domain.model.Response
 import ro.alexmamo.firebaseanonymousauthentication.domain.model.Response.*
 import ro.alexmamo.firebaseanonymousauthentication.domain.repository.AuthRepository
-import ro.alexmamo.firebaseanonymousauthentication.core.Constants.ERROR_MESSAGE
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -27,7 +26,7 @@ class AuthRepositoryImpl  @Inject constructor(
             auth.signInAnonymously().await()
             emit(Success(true))
         } catch (e: Exception) {
-            emit(Error(e.message ?: ERROR_MESSAGE))
+            emit(Error(e.message ?: e.toString()))
         }
     }
 
@@ -39,7 +38,7 @@ class AuthRepositoryImpl  @Inject constructor(
                 emit(Success(true))
             }
         } catch (e: Exception) {
-            emit(Error(e.message ?: ERROR_MESSAGE))
+            emit(Error(e.message ?: e.toString()))
         }
     }
 
