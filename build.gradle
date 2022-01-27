@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        gradle_version = "7.0.4"
+        gradle_version = "7.1.0"
         kotlin_version = "1.6.10"
         coroutines_version = "1.4.1"
         google_services_version = "4.3.8"
@@ -10,7 +10,7 @@ buildscript {
         live_data_version = "2.4.0"
         material_version = "1.5.0"
         compose_version = "1.2.0-alpha01"
-        hilt_navigation_compose_version = "1.0.0-rc01"
+        hilt_navigation_compose_version = "1.0.0"
         firebase_bom_version = "29.0.4"
         accompanist_version = "0.24.0-alpha"
     }
