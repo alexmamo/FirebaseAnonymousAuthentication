@@ -15,7 +15,7 @@ import ro.alexmamo.firebaseanonymousauthentication.domain.use_case.*
 @InstallIn(SingletonComponent::class)
 class AppModule {
     @Provides
-    fun provideFirebaseAuthInstance() = FirebaseAuth.getInstance()
+    fun provideFirebaseAuth() = FirebaseAuth.getInstance()
 
     @Provides
     fun provideAuthRepository(
