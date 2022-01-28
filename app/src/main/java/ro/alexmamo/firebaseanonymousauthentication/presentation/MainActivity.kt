@@ -10,7 +10,6 @@ import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.InternalCoroutinesApi
 import ro.alexmamo.firebaseanonymousauthentication.presentation.auth.AuthScreen
 import ro.alexmamo.firebaseanonymousauthentication.presentation.profile.ProfileScreen
@@ -20,7 +19,6 @@ import ro.alexmamo.firebaseanonymousauthentication.presentation.util.Screen.Prof
 @AndroidEntryPoint
 @InternalCoroutinesApi
 @ExperimentalAnimationApi
-@ExperimentalCoroutinesApi
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

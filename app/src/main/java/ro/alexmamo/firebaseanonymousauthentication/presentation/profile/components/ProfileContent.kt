@@ -15,7 +15,7 @@ import ro.alexmamo.firebaseanonymousauthentication.core.Constants.WELCOME_MESSAG
 fun ProfileContent() {
     Box(
         modifier = Modifier.fillMaxSize().padding(top = 48.dp),
-        contentAlignment = Alignment.TopCenter,
+        contentAlignment = Alignment.TopCenter
     ) {
         Text(
             text = WELCOME_MESSAGE,
