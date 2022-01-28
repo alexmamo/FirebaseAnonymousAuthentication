@@ -30,9 +30,7 @@ class MainActivity : AppCompatActivity() {
                 navController = navController,
                 startDestination = AuthScreen.route,
                 enterTransition = { EnterTransition.None },
-                exitTransition = { ExitTransition.None },
-                popEnterTransition = { EnterTransition.None },
-                popExitTransition = { ExitTransition.None }
+                exitTransition = { ExitTransition.None }
             ) {
                 composable(
                     route = AuthScreen.route

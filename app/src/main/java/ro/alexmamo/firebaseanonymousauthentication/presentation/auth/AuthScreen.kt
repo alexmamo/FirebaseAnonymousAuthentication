@@ -1,13 +1,12 @@
 package ro.alexmamo.firebaseanonymousauthentication.presentation.auth
 
-import android.util.Log
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import kotlinx.coroutines.InternalCoroutinesApi
-import ro.alexmamo.firebaseanonymousauthentication.core.Constants.TAG
+import ro.alexmamo.firebaseanonymousauthentication.core.Utils.Companion.printError
 import ro.alexmamo.firebaseanonymousauthentication.domain.model.Response.*
 import ro.alexmamo.firebaseanonymousauthentication.presentation.auth.components.AuthContent
 import ro.alexmamo.firebaseanonymousauthentication.presentation.auth.components.AuthTopBar
@@ -33,16 +32,14 @@ fun AuthScreen(
             }
         ) {
             AuthContent()
-
-            when(val response = authViewModel.signInState.value) {
-                is Loading -> ProgressBar()
-                is Success -> {
-                    if (response.data) {
-                        navController.navigate(ProfileScreen.route)
-                    }
-                }
-                is Error -> Log.d(TAG, response.message)
-            }
         }
+    }
+
+    when(val response = authViewModel.signInState.value) {
+        is Loading -> ProgressBar()
+        is Success -> if (response.data) {
+            navController.navigate(ProfileScreen.route)
+        }
+        is Error -> printError(response.message)
     }
 }
