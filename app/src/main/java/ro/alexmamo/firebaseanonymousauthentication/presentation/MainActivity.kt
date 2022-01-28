@@ -13,8 +13,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.InternalCoroutinesApi
 import ro.alexmamo.firebaseanonymousauthentication.presentation.auth.AuthScreen
 import ro.alexmamo.firebaseanonymousauthentication.presentation.profile.ProfileScreen
-import ro.alexmamo.firebaseanonymousauthentication.presentation.util.Screen.AuthScreen
-import ro.alexmamo.firebaseanonymousauthentication.presentation.util.Screen.ProfileScreen
+import ro.alexmamo.firebaseanonymousauthentication.presentation.navigation.Screen.AuthScreen
+import ro.alexmamo.firebaseanonymousauthentication.presentation.navigation.Screen.ProfileScreen
 
 @AndroidEntryPoint
 @InternalCoroutinesApi

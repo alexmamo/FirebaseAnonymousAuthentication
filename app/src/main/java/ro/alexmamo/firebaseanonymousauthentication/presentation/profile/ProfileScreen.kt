@@ -11,7 +11,7 @@ import ro.alexmamo.firebaseanonymousauthentication.domain.model.Response.*
 import ro.alexmamo.firebaseanonymousauthentication.presentation.components.ProgressBar
 import ro.alexmamo.firebaseanonymousauthentication.presentation.profile.components.ProfileContent
 import ro.alexmamo.firebaseanonymousauthentication.presentation.profile.components.ProfileTopBar
-import ro.alexmamo.firebaseanonymousauthentication.presentation.util.Screen.AuthScreen
+import ro.alexmamo.firebaseanonymousauthentication.presentation.navigation.Screen.AuthScreen
 
 @Composable
 @InternalCoroutinesApi
