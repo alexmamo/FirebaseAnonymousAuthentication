@@ -2,7 +2,6 @@ package ro.alexmamo.firebaseanonymousauthentication.presentation.auth
 
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import kotlinx.coroutines.InternalCoroutinesApi
@@ -16,24 +15,18 @@ import ro.alexmamo.firebaseanonymousauthentication.presentation.navigation.Scree
 @Composable
 @InternalCoroutinesApi
 fun AuthScreen(
-    authViewModel: AuthViewModel = hiltViewModel(),
+    viewModel: AuthViewModel = hiltViewModel(),
     navController: NavController
 ) {
-    if(authViewModel.isUserAuthenticated) {
-        LaunchedEffect(Unit) {
-            navController.navigate(ProfileScreen.route)
+    Scaffold(
+        topBar = {
+            AuthTopBar()
         }
-    } else {
-        Scaffold(
-            topBar = {
-                AuthTopBar()
-            }
-        ) {
-            AuthContent()
-        }
+    ) {
+        AuthContent()
     }
 
-    when(val response = authViewModel.signInState.value) {
+    when(val response = viewModel.signInState.value) {
         is Loading -> ProgressBar()
         is Success -> if (response.data) {
             navController.navigate(ProfileScreen.route)

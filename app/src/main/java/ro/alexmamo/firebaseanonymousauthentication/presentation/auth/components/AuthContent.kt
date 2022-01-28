@@ -18,7 +18,7 @@ import ro.alexmamo.firebaseanonymousauthentication.core.Constants.SIGN_IN
 @Composable
 @InternalCoroutinesApi
 fun AuthContent(
-    authViewModel: AuthViewModel = hiltViewModel()
+    viewModel: AuthViewModel = hiltViewModel()
 ) {
     Box(
         modifier = Modifier.fillMaxSize().padding(bottom = 48.dp),
@@ -26,7 +26,7 @@ fun AuthContent(
     ) {
         Button(
             onClick = {
-                authViewModel.signInAnonymously()
+                viewModel.signIn()
             }
         ) {
             Text(

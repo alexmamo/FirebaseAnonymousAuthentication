@@ -16,12 +16,10 @@ import javax.inject.Inject
 class AuthViewModel @Inject constructor(
     private val useCases: UseCases
 ): ViewModel() {
-    val isUserAuthenticated get() = useCases.isUserAuthenticated()
-
     private val _signInState = mutableStateOf<Response<Boolean>>(Success(false))
     val signInState: State<Response<Boolean>> = _signInState
 
-    fun signInAnonymously() {
+    fun signIn() {
         viewModelScope.launch {
             useCases.signInAnonymously().collect { response ->
                 _signInState.value = response

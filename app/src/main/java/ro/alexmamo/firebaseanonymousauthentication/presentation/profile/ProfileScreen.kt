@@ -2,7 +2,6 @@ package ro.alexmamo.firebaseanonymousauthentication.presentation.profile
 
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import kotlinx.coroutines.InternalCoroutinesApi
@@ -17,12 +16,8 @@ import ro.alexmamo.firebaseanonymousauthentication.presentation.navigation.Scree
 @InternalCoroutinesApi
 fun ProfileScreen(
     navController: NavController,
-    profileViewModel: ProfileViewModel = hiltViewModel()
+    viewModel: ProfileViewModel = hiltViewModel()
 ) {
-    LaunchedEffect(Unit) {
-        profileViewModel.getAuthState()
-    }
-
     Scaffold(
         topBar = {
             ProfileTopBar()
@@ -31,7 +26,7 @@ fun ProfileScreen(
         ProfileContent()
     }
 
-    when(val response = profileViewModel.isUserSignedOutState.value) {
+    when(val response = viewModel.signOutState.value) {
         is Loading -> ProgressBar()
         is Success -> if (response.data) {
             navController.popBackStack()
