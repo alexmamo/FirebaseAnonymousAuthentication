@@ -19,13 +19,11 @@ fun AuthScreen(
     authViewModel: AuthViewModel = hiltViewModel(),
     navController: NavController
 ) {
-    LaunchedEffect(Unit) {
-        if(authViewModel.isUserAuthenticated) {
+    if(authViewModel.isUserAuthenticated) {
+        LaunchedEffect(Unit) {
             navController.navigate(ProfileScreen.route)
         }
-    }
-
-    if (!authViewModel.isUserAuthenticated) {
+    } else {
         Scaffold(
             topBar = {
                 AuthTopBar()
