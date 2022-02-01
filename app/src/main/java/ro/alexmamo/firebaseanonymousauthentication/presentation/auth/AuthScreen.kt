@@ -2,6 +2,7 @@ package ro.alexmamo.firebaseanonymousauthentication.presentation.auth
 
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import kotlinx.coroutines.InternalCoroutinesApi
@@ -29,8 +30,12 @@ fun AuthScreen(
     when(val response = viewModel.signInState.value) {
         is Loading -> ProgressBar()
         is Success -> if (response.data) {
-            navController.navigate(ProfileScreen.route)
+            LaunchedEffect(response.data) {
+                navController.navigate(ProfileScreen.route)
+            }
         }
-        is Error -> printError(response.message)
+        is Error -> LaunchedEffect(Unit) {
+            printError(response.message)
+        }
     }
 }
