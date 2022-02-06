@@ -3,11 +3,9 @@ package ro.alexmamo.firebaseanonymousauthentication.data.repository
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
-import ro.alexmamo.firebaseanonymousauthentication.domain.model.Response
 import ro.alexmamo.firebaseanonymousauthentication.domain.model.Response.*
 import ro.alexmamo.firebaseanonymousauthentication.domain.repository.AuthRepository
 import javax.inject.Inject
@@ -30,7 +28,7 @@ class AuthRepositoryImpl  @Inject constructor(
         }
     }
 
-    override suspend fun signOut(): Flow<Response<Boolean>> = flow {
+    override suspend fun signOut() = flow {
         try {
             emit(Loading)
             auth.currentUser?.apply {
