@@ -7,12 +7,12 @@ buildscript {
         hilt_version = "2.40.4"
         core_version = "1.7.0"
         appcompat_version = "1.4.1"
-        live_data_version = "2.4.0"
+        live_data_version = "2.4.1"
         material_version = "1.5.0"
         compose_version = "1.2.0-alpha03"
         hilt_navigation_compose_version = "1.0.0"
-        firebase_bom_version = "29.0.4"
-        accompanist_version = "0.24.1-alpha"
+        firebase_bom_version = "29.1.0"
+        accompanist_version = "0.24.2-alpha"
     }
     repositories {
         google()
