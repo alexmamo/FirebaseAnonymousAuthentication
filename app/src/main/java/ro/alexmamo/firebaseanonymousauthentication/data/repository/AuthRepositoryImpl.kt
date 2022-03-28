@@ -1,6 +1,7 @@
 package ro.alexmamo.firebaseanonymousauthentication.data.repository
 
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
@@ -41,7 +42,7 @@ class AuthRepositoryImpl  @Inject constructor(
     }
 
     override fun getFirebaseAuthState() = callbackFlow  {
-        val authStateListener = FirebaseAuth.AuthStateListener { auth ->
+        val authStateListener = AuthStateListener { auth ->
             trySend(auth.currentUser == null)
         }
         auth.addAuthStateListener(authStateListener)
