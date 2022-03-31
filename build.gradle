@@ -3,8 +3,8 @@ buildscript {
         gradle_version = "7.1.2"
         kotlin_version = "1.6.10"
         coroutines_version = "1.6.0"
-        google_services_version = '4.3.10'
-        hilt_version = "2.40.4"
+        google_services_version = "4.3.10"
+        hilt_version = "2.40.5"
         core_version = "1.7.0"
         appcompat_version = "1.4.1"
         live_data_version = "2.4.1"
