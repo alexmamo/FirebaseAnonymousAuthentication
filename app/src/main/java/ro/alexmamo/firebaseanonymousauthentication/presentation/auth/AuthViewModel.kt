@@ -5,7 +5,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import ro.alexmamo.firebaseanonymousauthentication.domain.model.Response
 import ro.alexmamo.firebaseanonymousauthentication.domain.model.Response.Success
