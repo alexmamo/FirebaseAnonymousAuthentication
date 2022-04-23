@@ -24,6 +24,7 @@ fun AuthScreen(
             AuthTopBar()
         }
     ) {
+        it.calculateTopPadding()
         AuthContent()
     }
 

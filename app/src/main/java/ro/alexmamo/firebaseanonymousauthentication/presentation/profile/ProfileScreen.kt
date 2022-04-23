@@ -24,6 +24,7 @@ fun ProfileScreen(
             ProfileTopBar()
         }
     ) {
+        it.calculateTopPadding()
         ProfileContent()
     }
 
