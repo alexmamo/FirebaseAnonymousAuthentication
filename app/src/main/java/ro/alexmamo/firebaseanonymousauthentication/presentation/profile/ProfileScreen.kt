@@ -1,5 +1,6 @@
 package ro.alexmamo.firebaseanonymousauthentication.presentation.profile
 
+import android.annotation.SuppressLint
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -15,6 +16,7 @@ import ro.alexmamo.firebaseanonymousauthentication.presentation.profile.componen
 
 @Composable
 @InternalCoroutinesApi
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 fun ProfileScreen(
     navController: NavController,
     viewModel: ProfileViewModel = hiltViewModel()
@@ -24,7 +26,6 @@ fun ProfileScreen(
             ProfileTopBar()
         }
     ) {
-        it.calculateTopPadding()
         ProfileContent()
     }
 
