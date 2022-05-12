@@ -11,12 +11,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import kotlinx.coroutines.InternalCoroutinesApi
-import ro.alexmamo.firebaseanonymousauthentication.presentation.auth.AuthViewModel
 import ro.alexmamo.firebaseanonymousauthentication.core.Constants.SIGN_IN
+import ro.alexmamo.firebaseanonymousauthentication.presentation.auth.AuthViewModel
 
 @Composable
-@InternalCoroutinesApi
 fun AuthContent(
     viewModel: AuthViewModel = hiltViewModel()
 ) {

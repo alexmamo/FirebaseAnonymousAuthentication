@@ -1,12 +1,14 @@
 package ro.alexmamo.firebaseanonymousauthentication.presentation.profile
 
-import android.annotation.SuppressLint
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import kotlinx.coroutines.InternalCoroutinesApi
 import ro.alexmamo.firebaseanonymousauthentication.core.Utils.Companion.printError
 import ro.alexmamo.firebaseanonymousauthentication.domain.model.Response.*
 import ro.alexmamo.firebaseanonymousauthentication.presentation.components.ProgressBar
@@ -15,8 +17,6 @@ import ro.alexmamo.firebaseanonymousauthentication.presentation.profile.componen
 import ro.alexmamo.firebaseanonymousauthentication.presentation.profile.components.ProfileTopBar
 
 @Composable
-@InternalCoroutinesApi
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 fun ProfileScreen(
     navController: NavController,
     viewModel: ProfileViewModel = hiltViewModel()
@@ -24,10 +24,15 @@ fun ProfileScreen(
     Scaffold(
         topBar = {
             ProfileTopBar()
+        },
+        content = { padding ->
+            Box(
+                modifier = Modifier.fillMaxSize().padding(padding)
+            ) {
+                ProfileContent()
+            }
         }
-    ) {
-        ProfileContent()
-    }
+    )
 
     when(val response = viewModel.signOutState.value) {
         is Loading -> ProgressBar()

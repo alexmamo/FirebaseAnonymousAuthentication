@@ -7,17 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.ExperimentalAnimationApi
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.InternalCoroutinesApi
+import ro.alexmamo.firebaseanonymousauthentication.presentation.auth.AuthViewModel
 import ro.alexmamo.firebaseanonymousauthentication.presentation.navigation.NavGraph
 import ro.alexmamo.firebaseanonymousauthentication.presentation.navigation.Screen.ProfileScreen
 
 @AndroidEntryPoint
-@InternalCoroutinesApi
 @ExperimentalAnimationApi
-@ExperimentalCoroutinesApi
 class MainActivity : AppCompatActivity() {
-    private val viewModel by viewModels<MainViewModel>()
+    private val viewModel by viewModels<AuthViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

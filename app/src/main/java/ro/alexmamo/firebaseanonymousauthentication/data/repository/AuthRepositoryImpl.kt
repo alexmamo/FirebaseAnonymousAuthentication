@@ -2,7 +2,6 @@ package ro.alexmamo.firebaseanonymousauthentication.data.repository
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flow
@@ -13,7 +12,6 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-@ExperimentalCoroutinesApi
 class AuthRepositoryImpl  @Inject constructor(
     private val auth: FirebaseAuth
 ): AuthRepository {
@@ -32,10 +30,8 @@ class AuthRepositoryImpl  @Inject constructor(
     override suspend fun signOut() = flow {
         try {
             emit(Loading)
-            auth.currentUser?.apply {
-                delete().await()
-                emit(Success(true))
-            }
+            auth.currentUser?.delete()?.await()
+            emit(Success(true))
         } catch (e: Exception) {
             emit(Error(e.message ?: e.toString()))
         }
