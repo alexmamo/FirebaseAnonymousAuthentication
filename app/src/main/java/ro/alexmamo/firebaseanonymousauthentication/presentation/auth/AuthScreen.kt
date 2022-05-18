@@ -8,18 +8,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
 import ro.alexmamo.firebaseanonymousauthentication.core.Utils.Companion.printError
 import ro.alexmamo.firebaseanonymousauthentication.domain.model.Response.*
 import ro.alexmamo.firebaseanonymousauthentication.presentation.auth.components.AuthContent
 import ro.alexmamo.firebaseanonymousauthentication.presentation.auth.components.AuthTopBar
 import ro.alexmamo.firebaseanonymousauthentication.presentation.components.ProgressBar
-import ro.alexmamo.firebaseanonymousauthentication.presentation.navigation.Screen.ProfileScreen
 
 @Composable
 fun AuthScreen(
     viewModel: AuthViewModel = hiltViewModel(),
-    navController: NavController
+    navigateToProfileScreen: () -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -37,7 +35,7 @@ fun AuthScreen(
         is Loading -> ProgressBar()
         is Success -> if (response.data) {
             LaunchedEffect(response.data) {
-                navController.navigate(ProfileScreen.route)
+                navigateToProfileScreen()
             }
         }
         is Error -> LaunchedEffect(Unit) {

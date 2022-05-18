@@ -11,7 +11,7 @@ buildscript {
         material_version = "1.6.0"
         compose_version = "1.2.0-alpha08"
         hilt_navigation_compose_version = "1.0.0"
-        firebase_bom_version = "30.0.0"
+        firebase_bom_version = "30.0.1"
         accompanist_version = "0.24.7-alpha"
     }
     repositories {
