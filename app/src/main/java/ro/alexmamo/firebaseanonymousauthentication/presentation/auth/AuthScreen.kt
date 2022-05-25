@@ -22,14 +22,15 @@ fun AuthScreen(
     Scaffold(
         topBar = {
             AuthTopBar()
+        },
+        content = { padding ->
+            Box(
+                modifier = Modifier.fillMaxSize().padding(padding)
+            ) {
+                AuthContent()
+            }
         }
-    ) { padding ->
-        Box(
-            modifier = Modifier.fillMaxSize().padding(padding)
-        ) {
-            AuthContent()
-        }
-    }
+    )
 
     when(val response = viewModel.signInState.value) {
         is Loading -> ProgressBar()
