@@ -10,13 +10,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import ro.alexmamo.firebaseanonymousauthentication.core.Constants.SIGN_IN
-import ro.alexmamo.firebaseanonymousauthentication.presentation.auth.AuthViewModel
 
 @Composable
 fun AuthContent(
-    viewModel: AuthViewModel = hiltViewModel()
+    signIn: () -> Unit
 ) {
     Box(
         modifier = Modifier.fillMaxSize().padding(bottom = 48.dp),
@@ -24,7 +22,7 @@ fun AuthContent(
     ) {
         Button(
             onClick = {
-                viewModel.signIn()
+                signIn()
             }
         ) {
             Text(

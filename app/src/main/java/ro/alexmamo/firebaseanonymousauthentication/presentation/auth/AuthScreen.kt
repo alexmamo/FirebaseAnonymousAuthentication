@@ -27,7 +27,11 @@ fun AuthScreen(
             Box(
                 modifier = Modifier.fillMaxSize().padding(padding)
             ) {
-                AuthContent()
+                AuthContent(
+                    signIn = {
+                        viewModel.signIn()
+                    }
+                )
             }
         }
     )

@@ -21,7 +21,11 @@ fun ProfileScreen(
 ) {
     Scaffold(
         topBar = {
-            ProfileTopBar()
+            ProfileTopBar(
+                signOut = {
+                    viewModel.signOut()
+                }
+            )
         },
         content = { padding ->
             Box(
