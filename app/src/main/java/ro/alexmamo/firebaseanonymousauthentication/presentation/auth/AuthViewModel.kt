@@ -22,11 +22,9 @@ class AuthViewModel @Inject constructor(
     private val _signInState = mutableStateOf<Response<Boolean>>(Success(false))
     val signInState: State<Response<Boolean>> = _signInState
 
-    fun signIn() {
-        viewModelScope.launch {
-            useCases.signInAnonymously().collect { response ->
-                _signInState.value = response
-            }
+    fun signIn() = viewModelScope.launch {
+        useCases.signInAnonymously().collect { response ->
+            _signInState.value = response
         }
     }
 
