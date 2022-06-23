@@ -22,11 +22,7 @@ class AuthViewModel @Inject constructor(
     private val _signInState = mutableStateOf<Response<Boolean>>(Success(false))
     val signInState: State<Response<Boolean>> = _signInState
 
-    init {
-        getAuthState()
-    }
-
-    private fun getAuthState() = liveData(Dispatchers.IO) {
+    fun getAuthState() = liveData(Dispatchers.IO) {
         useCases.getAuthState().collect { response ->
             emit(response)
         }
