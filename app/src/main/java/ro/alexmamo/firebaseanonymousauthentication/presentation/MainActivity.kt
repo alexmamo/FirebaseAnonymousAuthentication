@@ -8,9 +8,9 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.navigation.NavHostController
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import dagger.hilt.android.AndroidEntryPoint
+import ro.alexmamo.firebaseanonymousauthentication.navigation.NavGraph
+import ro.alexmamo.firebaseanonymousauthentication.navigation.Screen.ProfileScreen
 import ro.alexmamo.firebaseanonymousauthentication.presentation.auth.AuthViewModel
-import ro.alexmamo.firebaseanonymousauthentication.presentation.navigation.NavGraph
-import ro.alexmamo.firebaseanonymousauthentication.presentation.navigation.Screen.ProfileScreen
 
 @AndroidEntryPoint
 @ExperimentalAnimationApi

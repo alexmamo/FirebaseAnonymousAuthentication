@@ -1,4 +1,4 @@
-package ro.alexmamo.firebaseanonymousauthentication.presentation.navigation
+package ro.alexmamo.firebaseanonymousauthentication.navigation
 
 import ro.alexmamo.firebaseanonymousauthentication.core.Constants.AUTH_SCREEN
 import ro.alexmamo.firebaseanonymousauthentication.core.Constants.PROFILE_SCREEN

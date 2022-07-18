@@ -6,7 +6,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.BottomCenter
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -18,12 +18,10 @@ fun AuthContent(
 ) {
     Box(
         modifier = Modifier.fillMaxSize().padding(bottom = 48.dp),
-        contentAlignment = Alignment.BottomCenter
+        contentAlignment = BottomCenter
     ) {
         Button(
-            onClick = {
-                signIn()
-            }
+            onClick = signIn
         ) {
             Text(
                 text = SIGN_IN,

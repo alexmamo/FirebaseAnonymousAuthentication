@@ -1,4 +1,4 @@
-package ro.alexmamo.firebaseanonymousauthentication.presentation.navigation
+package ro.alexmamo.firebaseanonymousauthentication.navigation
 
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
@@ -8,8 +8,8 @@ import androidx.navigation.NavHostController
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import ro.alexmamo.firebaseanonymousauthentication.presentation.auth.AuthScreen
-import ro.alexmamo.firebaseanonymousauthentication.presentation.navigation.Screen.AuthScreen
-import ro.alexmamo.firebaseanonymousauthentication.presentation.navigation.Screen.ProfileScreen
+import ro.alexmamo.firebaseanonymousauthentication.navigation.Screen.AuthScreen
+import ro.alexmamo.firebaseanonymousauthentication.navigation.Screen.ProfileScreen
 import ro.alexmamo.firebaseanonymousauthentication.presentation.profile.ProfileScreen
 
 @Composable

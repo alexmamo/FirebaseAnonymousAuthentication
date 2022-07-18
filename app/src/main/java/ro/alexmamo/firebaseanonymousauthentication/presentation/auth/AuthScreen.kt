@@ -12,7 +12,7 @@ import ro.alexmamo.firebaseanonymousauthentication.core.Utils.Companion.printErr
 import ro.alexmamo.firebaseanonymousauthentication.domain.model.Response.*
 import ro.alexmamo.firebaseanonymousauthentication.presentation.auth.components.AuthContent
 import ro.alexmamo.firebaseanonymousauthentication.presentation.auth.components.AuthTopBar
-import ro.alexmamo.firebaseanonymousauthentication.presentation.components.ProgressBar
+import ro.alexmamo.firebaseanonymousauthentication.components.ProgressBar
 
 @Composable
 fun AuthScreen(
