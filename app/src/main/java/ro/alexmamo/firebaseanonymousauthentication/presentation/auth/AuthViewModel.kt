@@ -1,7 +1,8 @@
 package ro.alexmamo.firebaseanonymousauthentication.presentation.auth
 
-import androidx.compose.runtime.State
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
@@ -18,9 +19,8 @@ class AuthViewModel @Inject constructor(
     private val useCases: UseCases
 ): ViewModel() {
     val isUserAuthenticated get() = useCases.isUserAuthenticated()
-
-    private val _signInState = mutableStateOf<Response<Boolean>>(Success(false))
-    val signInState: State<Response<Boolean>> = _signInState
+    var signInResponse by mutableStateOf<Response<Boolean>>(Success(false))
+        private set
 
     fun getAuthState() = liveData(Dispatchers.IO) {
         useCases.getAuthState().collect { response ->
@@ -30,7 +30,7 @@ class AuthViewModel @Inject constructor(
 
     fun signIn() = viewModelScope.launch {
         useCases.signInAnonymously().collect { response ->
-            _signInState.value = response
+            signInResponse = response
         }
     }
 }

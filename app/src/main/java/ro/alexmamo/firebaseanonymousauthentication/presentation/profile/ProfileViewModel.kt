@@ -1,7 +1,8 @@
 package ro.alexmamo.firebaseanonymousauthentication.presentation.profile
 
-import androidx.compose.runtime.State
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,12 +16,12 @@ import javax.inject.Inject
 class ProfileViewModel @Inject constructor(
     private val useCases: UseCases
 ): ViewModel() {
-    private val _signOutState = mutableStateOf<Response<Boolean>>(Success(false))
-    val signOutState: State<Response<Boolean>> = _signOutState
+    var signOutResponse by mutableStateOf<Response<Boolean>>(Success(false))
+        private set
 
     fun signOut() = viewModelScope.launch {
         useCases.signOut().collect { response ->
-            _signOutState.value = response
+            signOutResponse = response
         }
     }
 }

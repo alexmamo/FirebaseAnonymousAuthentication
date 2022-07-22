@@ -36,15 +36,15 @@ fun AuthScreen(
         }
     )
 
-    when(val response = viewModel.signInState.value) {
+    when(val signInResponse = viewModel.signInResponse) {
         is Loading -> ProgressBar()
-        is Success -> if (response.data) {
-            LaunchedEffect(response.data) {
+        is Success -> if (signInResponse.data) {
+            LaunchedEffect(signInResponse.data) {
                 navigateToProfileScreen()
             }
         }
         is Error -> LaunchedEffect(Unit) {
-            printError(response.message)
+            printError(signInResponse.message)
         }
     }
 }

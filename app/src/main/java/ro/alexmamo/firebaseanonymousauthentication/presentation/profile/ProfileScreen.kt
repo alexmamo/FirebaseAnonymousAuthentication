@@ -8,9 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import ro.alexmamo.firebaseanonymousauthentication.components.ProgressBar
 import ro.alexmamo.firebaseanonymousauthentication.core.Utils.Companion.printError
 import ro.alexmamo.firebaseanonymousauthentication.domain.model.Response.*
-import ro.alexmamo.firebaseanonymousauthentication.components.ProgressBar
 import ro.alexmamo.firebaseanonymousauthentication.presentation.profile.components.ProfileContent
 import ro.alexmamo.firebaseanonymousauthentication.presentation.profile.components.ProfileTopBar
 
@@ -36,15 +36,15 @@ fun ProfileScreen(
         }
     )
 
-    when(val response = viewModel.signOutState.value) {
+    when(val signOutResponse = viewModel.signOutResponse) {
         is Loading -> ProgressBar()
-        is Success -> if (response.data) {
-            LaunchedEffect(response.data) {
+        is Success -> if (signOutResponse.data) {
+            LaunchedEffect(signOutResponse.data) {
                 navigateToAuthScreen()
             }
         }
         is Error -> LaunchedEffect(Unit) {
-            printError(response.message)
+            printError(signOutResponse.message)
         }
     }
 }
