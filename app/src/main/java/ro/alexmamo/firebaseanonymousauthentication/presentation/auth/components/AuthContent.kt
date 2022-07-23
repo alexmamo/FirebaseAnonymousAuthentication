@@ -1,6 +1,7 @@
 package ro.alexmamo.firebaseanonymousauthentication.presentation.auth.components
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
@@ -14,10 +15,15 @@ import ro.alexmamo.firebaseanonymousauthentication.core.Constants.SIGN_IN
 
 @Composable
 fun AuthContent(
+    padding: PaddingValues,
     signIn: () -> Unit
 ) {
     Box(
-        modifier = Modifier.fillMaxSize().padding(bottom = 48.dp),
+        modifier = Modifier.fillMaxSize()
+            .padding(padding)
+            .padding(
+                bottom = 48.dp
+            ),
         contentAlignment = BottomCenter
     ) {
         Button(

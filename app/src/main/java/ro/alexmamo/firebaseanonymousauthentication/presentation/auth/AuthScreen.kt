@@ -1,18 +1,14 @@
 package ro.alexmamo.firebaseanonymousauthentication.presentation.auth
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
-import ro.alexmamo.firebaseanonymousauthentication.core.Utils.Companion.printError
+import ro.alexmamo.firebaseanonymousauthentication.components.ProgressBar
+import ro.alexmamo.firebaseanonymousauthentication.core.Utils.Companion.printMessage
 import ro.alexmamo.firebaseanonymousauthentication.domain.model.Response.*
 import ro.alexmamo.firebaseanonymousauthentication.presentation.auth.components.AuthContent
 import ro.alexmamo.firebaseanonymousauthentication.presentation.auth.components.AuthTopBar
-import ro.alexmamo.firebaseanonymousauthentication.components.ProgressBar
 
 @Composable
 fun AuthScreen(
@@ -24,15 +20,12 @@ fun AuthScreen(
             AuthTopBar()
         },
         content = { padding ->
-            Box(
-                modifier = Modifier.fillMaxSize().padding(padding)
-            ) {
-                AuthContent(
-                    signIn = {
-                        viewModel.signIn()
-                    }
-                )
-            }
+            AuthContent(
+                padding = padding,
+                signIn = {
+                    viewModel.signIn()
+                }
+            )
         }
     )
 
@@ -44,7 +37,7 @@ fun AuthScreen(
             }
         }
         is Error -> LaunchedEffect(Unit) {
-            printError(signInResponse.message)
+            printMessage(signInResponse.message)
         }
     }
 }
